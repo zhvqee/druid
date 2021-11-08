@@ -21,7 +21,7 @@ import java.util.UUID;
  * @Version: 1.0
  */
 @RestController
-@RequestMapping("/druid/demo")
+@RequestMapping("/test/demo")
 public class DruidTestController {
 
     @Autowired
@@ -34,7 +34,7 @@ public class DruidTestController {
         return result;
     }
 
-    @RequestMapping("/listTest")
+    @RequestMapping("/list")
     public Map<String, Object> listTest(Long id) {
         Map<String, Object> result = Maps.newHashMap();
         TbOrder tbOrder = tbOrderMapper.selectByPrimaryKey(id);

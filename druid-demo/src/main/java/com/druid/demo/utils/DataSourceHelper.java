@@ -4,6 +4,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.druid.demo.properties.DruidDataSourceProperties;
 import org.springframework.util.StringUtils;
 
+import java.sql.SQLException;
 import java.util.Properties;
 
 /**
@@ -17,9 +18,8 @@ import java.util.Properties;
 public abstract class DataSourceHelper {
 
 
-    public static DruidDataSource dataSourceOf(DruidDataSourceProperties properties) {
+    public static DruidDataSource dataSourceOf(DruidDataSourceProperties properties) throws SQLException {
         DruidDataSource dataSource = new DruidDataSource();
-
 
         dataSource.setDriverClassName(properties.getDriverClassName());
         dataSource.setUrl(properties.getUrl());
@@ -54,7 +54,7 @@ public abstract class DataSourceHelper {
         dataSource.setLogAbandoned(properties.getLogAbandoned());
 
         dataSource.setProxyFilters(properties.getProxyFilters());
-
+        dataSource.setFilters("stat"); // 监控
         dataSource.setUseUnfairLock(properties.getUseUnfairLock());
         return dataSource;
     }

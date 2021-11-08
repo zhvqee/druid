@@ -1,11 +1,14 @@
 package com.druid.demo.configuration;
 
+import com.alibaba.druid.support.spring.stat.DruidStatInterceptor;
 import com.druid.demo.properties.DruidDataSourceProperties;
 import com.druid.demo.utils.DataSourceHelper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.aop.support.DefaultPointcutAdvisor;
+import org.springframework.aop.support.JdkRegexpMethodPointcut;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -17,6 +20,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 import java.io.IOException;
+import java.sql.SQLException;
 
 /**
  * @ProjectName: druid
@@ -32,7 +36,7 @@ import java.io.IOException;
 public class DruidDataSourceConfiguration {
 
     @Bean
-    public DataSource dataSource(DruidDataSourceProperties druidDataSource) {
+    public DataSource dataSource(DruidDataSourceProperties druidDataSource) throws SQLException {
         return DataSourceHelper.dataSourceOf(druidDataSource);
     }
 
@@ -55,6 +59,27 @@ public class DruidDataSourceConfiguration {
     @Bean
     public SqlSessionTemplate sqlSessionTemplate(SqlSessionFactory sqlSessionFactory) throws Exception {
         return new SqlSessionTemplate(sqlSessionFactory);
+    }
+
+    @Bean
+    public DruidStatInterceptor druidStatInterceptor() {
+        return new DruidStatInterceptor();
+
+    }
+
+    @Bean
+    public JdkRegexpMethodPointcut druidStatPointcut() {
+        JdkRegexpMethodPointcut pointcut = new JdkRegexpMethodPointcut();
+        pointcut.setPatterns("com.druid.demo.mapper.*");
+        return pointcut;
+    }
+
+    @Bean
+    public DefaultPointcutAdvisor druidStatAdvisor(DruidStatInterceptor druidStatInterceptor, JdkRegexpMethodPointcut druidStatPointcut) {
+        DefaultPointcutAdvisor defaultPointAdvisor = new DefaultPointcutAdvisor();
+        defaultPointAdvisor.setPointcut(druidStatPointcut);
+        defaultPointAdvisor.setAdvice(druidStatInterceptor);
+        return defaultPointAdvisor;
     }
 
 }
