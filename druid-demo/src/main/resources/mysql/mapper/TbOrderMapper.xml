@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.druid.demo.mapper.TbOrderMapper">
+  <resultMap id="BaseResultMap" type="com.druid.demo.model.TbOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="shop_id" jdbcType="BIGINT" property="shopId" />
+    <result column="payment_channel" jdbcType="INTEGER" property="paymentChannel" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="payment_time" jdbcType="TIMESTAMP" property="paymentTime" />
+    <result column="order_sn" jdbcType="VARCHAR" property="orderSn" />
+    <result column="goods_count" jdbcType="INTEGER" property="goodsCount" />
+    <result column="goods_amount" jdbcType="BIGINT" property="goodsAmount" />
+    <result column="actual_pay_amount" jdbcType="BIGINT" property="actualPayAmount" />
+    <result column="logistics_fee" jdbcType="BIGINT" property="logisticsFee" />
+    <result column="address_id" jdbcType="BIGINT" property="addressId" />
+    <result column="delivery_time" jdbcType="TIMESTAMP" property="deliveryTime" />
+    <result column="completed_time" jdbcType="TIMESTAMP" property="completedTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, order_no, user_id, shop_id, payment_channel, order_status, create_time, payment_time, 
+    order_sn, goods_count, goods_amount, actual_pay_amount, logistics_fee, address_id, 
+    delivery_time, completed_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.druid.demo.model.TbOrder">
+    insert into tb_order (id, order_no, user_id, 
+      shop_id, payment_channel, order_status, 
+      create_time, payment_time, order_sn, 
+      goods_count, goods_amount, actual_pay_amount, 
+      logistics_fee, address_id, delivery_time, 
+      completed_time)
+    values (#{id,jdbcType=BIGINT}, #{orderNo,jdbcType=VARCHAR}, #{userId,jdbcType=BIGINT}, 
+      #{shopId,jdbcType=BIGINT}, #{paymentChannel,jdbcType=INTEGER}, #{orderStatus,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{paymentTime,jdbcType=TIMESTAMP}, #{orderSn,jdbcType=VARCHAR}, 
+      #{goodsCount,jdbcType=INTEGER}, #{goodsAmount,jdbcType=BIGINT}, #{actualPayAmount,jdbcType=BIGINT}, 
+      #{logisticsFee,jdbcType=BIGINT}, #{addressId,jdbcType=BIGINT}, #{deliveryTime,jdbcType=TIMESTAMP}, 
+      #{completedTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.druid.demo.model.TbOrder">
+    insert into tb_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="shopId != null">
+        shop_id,
+      </if>
+      <if test="paymentChannel != null">
+        payment_channel,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="paymentTime != null">
+        payment_time,
+      </if>
+      <if test="orderSn != null">
+        order_sn,
+      </if>
+      <if test="goodsCount != null">
+        goods_count,
+      </if>
+      <if test="goodsAmount != null">
+        goods_amount,
+      </if>
+      <if test="actualPayAmount != null">
+        actual_pay_amount,
+      </if>
+      <if test="logisticsFee != null">
+        logistics_fee,
+      </if>
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="deliveryTime != null">
+        delivery_time,
+      </if>
+      <if test="completedTime != null">
+        completed_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null">
+        #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="paymentChannel != null">
+        #{paymentChannel,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentTime != null">
+        #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderSn != null">
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsCount != null">
+        #{goodsCount,jdbcType=INTEGER},
+      </if>
+      <if test="goodsAmount != null">
+        #{goodsAmount,jdbcType=BIGINT},
+      </if>
+      <if test="actualPayAmount != null">
+        #{actualPayAmount,jdbcType=BIGINT},
+      </if>
+      <if test="logisticsFee != null">
+        #{logisticsFee,jdbcType=BIGINT},
+      </if>
+      <if test="addressId != null">
+        #{addressId,jdbcType=BIGINT},
+      </if>
+      <if test="deliveryTime != null">
+        #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completedTime != null">
+        #{completedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.druid.demo.model.TbOrder">
+    update tb_order
+    <set>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="shopId != null">
+        shop_id = #{shopId,jdbcType=BIGINT},
+      </if>
+      <if test="paymentChannel != null">
+        payment_channel = #{paymentChannel,jdbcType=INTEGER},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paymentTime != null">
+        payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderSn != null">
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsCount != null">
+        goods_count = #{goodsCount,jdbcType=INTEGER},
+      </if>
+      <if test="goodsAmount != null">
+        goods_amount = #{goodsAmount,jdbcType=BIGINT},
+      </if>
+      <if test="actualPayAmount != null">
+        actual_pay_amount = #{actualPayAmount,jdbcType=BIGINT},
+      </if>
+      <if test="logisticsFee != null">
+        logistics_fee = #{logisticsFee,jdbcType=BIGINT},
+      </if>
+      <if test="addressId != null">
+        address_id = #{addressId,jdbcType=BIGINT},
+      </if>
+      <if test="deliveryTime != null">
+        delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="completedTime != null">
+        completed_time = #{completedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.druid.demo.model.TbOrder">
+    update tb_order
+    set order_no = #{orderNo,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=BIGINT},
+      shop_id = #{shopId,jdbcType=BIGINT},
+      payment_channel = #{paymentChannel,jdbcType=INTEGER},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      payment_time = #{paymentTime,jdbcType=TIMESTAMP},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+      goods_count = #{goodsCount,jdbcType=INTEGER},
+      goods_amount = #{goodsAmount,jdbcType=BIGINT},
+      actual_pay_amount = #{actualPayAmount,jdbcType=BIGINT},
+      logistics_fee = #{logisticsFee,jdbcType=BIGINT},
+      address_id = #{addressId,jdbcType=BIGINT},
+      delivery_time = #{deliveryTime,jdbcType=TIMESTAMP},
+      completed_time = #{completedTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

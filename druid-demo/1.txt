@@ -1,0 +1,836 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.alibaba:druid-demo:jar:1.2.9_preview_01
+[WARNING] 'dependencies.dependency.systemPath' for com.sun:tools:jar should not point at files within the project directory, ${project.basedir}/lib/openjdk-1.8-tools.jar will be unresolvable by dependent projects @ com.alibaba:druid:1.2.9_preview_01, /Users/zhuqi/Documents/workspace/druid/pom.xml, line 711, column 16
+[WARNING] 'dependencies.dependency.systemPath' for com.sun:jconsole:jar should not point at files within the project directory, ${project.basedir}/lib/openjdk-1.8-jconsole.jar will be unresolvable by dependent projects @ com.alibaba:druid:1.2.9_preview_01, /Users/zhuqi/Documents/workspace/druid/pom.xml, line 719, column 16
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ com.alibaba:druid-demo:[unknown-version], /Users/zhuqi/Documents/workspace/druid/druid-demo/pom.xml, line 113, column 21
+[WARNING] 'dependencies.dependency.scope' for org.springframework.boot:spring-boot-dependencies:pom must be one of [provided, compile, runtime, test, system] but is 'import'. @ com.alibaba:druid-demo:[unknown-version], /Users/zhuqi/Documents/workspace/druid/druid-demo/pom.xml, line 71, column 20
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building druid-demo 1.2.9_preview_01
+[INFO] ------------------------------------------------------------------------
+[WARNING] The POM for com.alibaba:druid:jar:1.2.9_preview_01 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Downloading from java.net.Releases: https://maven.java.net/content/repositories/releases/org/glassfish/javax.el/maven-metadata.xml
+Downloading from jvnet-nexus-snapshots: https://maven.java.net/content/repositories/snapshots/org/glassfish/javax.el/maven-metadata.xml
+Downloading from apache.snapshots: https://repository.apache.org/snapshots/org/glassfish/javax.el/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/javax.el/maven-metadata.xml
+[WARNING] Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to apache.snapshots (https://repository.apache.org/snapshots): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to java.net.Releases (https://maven.java.net/content/repositories/releases): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to jvnet-nexus-snapshots (https://maven.java.net/content/repositories/snapshots): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ druid-demo ---
+[WARNING] Failure to transfer org.glassfish:javax.el/maven-metadata.xml from https://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Failure to transfer org.glassfish:javax.el/maven-metadata.xml from https://repository.apache.org/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of apache.snapshots has elapsed or updates are forced. Original error: Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to apache.snapshots (https://repository.apache.org/snapshots): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Failure to transfer org.glassfish:javax.el/maven-metadata.xml from https://maven.java.net/content/repositories/releases was cached in the local repository, resolution will not be reattempted until the update interval of java.net.Releases has elapsed or updates are forced. Original error: Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to java.net.Releases (https://maven.java.net/content/repositories/releases): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Failure to transfer org.glassfish:javax.el/maven-metadata.xml from https://maven.java.net/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of jvnet-nexus-snapshots has elapsed or updates are forced. Original error: Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to jvnet-nexus-snapshots (https://maven.java.net/content/repositories/snapshots): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[INFO] com.alibaba:druid-demo:jar:1.2.9_preview_01
+[INFO] +- org.mybatis.generator:mybatis-generator-core:jar:1.3.7:compile
+[INFO] +- mysql:mysql-connector-java:jar:5.1.47:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.11.2:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.11.2:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-annotations:jar:2.11.2:compile
+[INFO] +- org.aspectj:aspectjweaver:jar:1.7.4:compile
+[INFO] +- org.aspectj:aspectjrt:jar:1.7.4:compile
+[INFO] +- org.projectlombok:lombok:jar:1.16.18:compile
+[INFO] +- org.springframework.boot:spring-boot-dependencies:pom:2.0.4.RELEASE:import
+[INFO] +- org.apache.commons:commons-collections4:jar:4.4:compile
+[INFO] +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] +- org.mybatis.spring.boot:mybatis-spring-boot-starter:jar:1.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:1.5.10.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:1.5.10.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:1.5.10.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:1.5.10.RELEASE:compile
+[INFO] |  |  |  +- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  |  |  \- org.slf4j:log4j-over-slf4j:jar:1.7.25:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.17:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:1.5.10.RELEASE:compile
+[INFO] |  \- org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:jar:1.3.2:compile
+[INFO] +- com.alibaba:druid:jar:1.2.9_preview_01:compile
+[INFO] +- simple-jndi:simple-jndi:jar:0.11.4.1:provided
+[INFO] +- javax.transaction:jta:jar:1.1:provided
+[INFO] +- javax.servlet:javax.servlet-api:jar:3.1.0:provided
+[INFO] +- commons-logging:commons-logging:jar:1.2:provided
+[INFO] +- org.springframework:spring-core:jar:4.3.20.RELEASE:provided
+[INFO] +- org.springframework:spring-beans:jar:4.3.20.RELEASE:provided
+[INFO] +- org.springframework:spring-orm:jar:4.3.20.RELEASE:provided
+[INFO] |  +- org.springframework:spring-jdbc:jar:4.3.20.RELEASE:compile
+[INFO] |  \- org.springframework:spring-tx:jar:4.3.20.RELEASE:compile
+[INFO] +- org.springframework:spring-webmvc:jar:4.3.20.RELEASE:provided
+[INFO] |  +- org.springframework:spring-aop:jar:4.3.20.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:4.3.20.RELEASE:compile
+[INFO] |  +- org.springframework:spring-expression:jar:4.3.20.RELEASE:compile
+[INFO] |  \- org.springframework:spring-web:jar:4.3.20.RELEASE:provided
+[INFO] +- org.springframework:spring-ibatis:jar:2.0.8:provided
+[INFO] |  \- org.springframework:spring-dao:jar:2.0.8:provided
+[INFO] |     \- aopalliance:aopalliance:jar:1.0:provided
+[INFO] +- org.mybatis:mybatis:jar:3.4.0:provided
+[INFO] +- org.mybatis:mybatis-spring:jar:1.3.0:provided
+[INFO] +- log4j:log4j:jar:1.2.17:provided
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.9:provided
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.9:provided
+[INFO] +- org.apache.logging.log4j:log4j-api:jar:2.13.2:provided
+[INFO] +- org.apache.logging.log4j:log4j-core:jar:2.13.2:provided
+[INFO] +- net.sourceforge.jtds:jtds:jar:1.3.0:provided
+[INFO] +- org.postgresql:postgresql:jar:42.2.18:provided
+[INFO] |  \- org.checkerframework:checker-qual:jar:3.5.0:provided
+[INFO] +- com.oracle.ojdbc:ojdbc8:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:ucp:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:oraclepki:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:osdt_cert:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:osdt_core:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:simplefan:jar:19.3.0.0:provided
+[INFO] |  \- com.oracle.ojdbc:ons:jar:19.3.0.0:provided
+[INFO] +- org.apache.kylin:kylin-jdbc:jar:2.0.0:provided
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.5:provided
+[INFO] |  +- org.apache.calcite.avatica:avatica-core:jar:1.9.0:provided
+[INFO] |  |  +- org.apache.calcite.avatica:avatica-metrics:jar:1.9.0:provided
+[INFO] |  |  \- com.google.protobuf:protobuf-java:jar:3.1.0:provided
+[INFO] |  \- org.slf4j:jcl-over-slf4j:jar:1.7.21:compile
+[INFO] +- io.trino:trino-jdbc:jar:352:provided
+[INFO] +- org.quartz-scheduler:quartz:jar:2.3.2:provided
+[INFO] |  +- com.mchange:c3p0:jar:0.9.5.4:provided
+[INFO] |  +- com.mchange:mchange-commons-java:jar:0.2.15:provided
+[INFO] |  \- com.zaxxer:HikariCP-java7:jar:2.4.13:provided
+[INFO] +- org.apache.ibatis:ibatis-sqlmap:jar:2.3.4.726:provided
+[INFO] +- com.h2database:h2:jar:1.4.199:provided
+[INFO] +- org.hibernate:hibernate-core:jar:5.1.0.Final:provided
+[INFO] |  +- org.jboss.logging:jboss-logging:jar:3.3.0.Final:provided
+[INFO] |  +- org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.0.Final:provided
+[INFO] |  +- org.javassist:javassist:jar:3.20.0-GA:provided
+[INFO] |  +- antlr:antlr:jar:2.7.7:provided
+[INFO] |  +- org.apache.geronimo.specs:geronimo-jta_1.1_spec:jar:1.1.1:provided
+[INFO] |  +- org.jboss:jandex:jar:2.0.0.Final:provided
+[INFO] |  +- com.fasterxml:classmate:jar:1.3.0:provided
+[INFO] |  +- dom4j:dom4j:jar:1.6.1:provided
+[INFO] |  |  \- xml-apis:xml-apis:jar:1.0.b2:provided
+[INFO] |  \- org.hibernate.common:hibernate-commons-annotations:jar:5.0.1.Final:provided
+[INFO] +- org.hibernate:hibernate-c3p0:jar:5.1.0.Final:provided
+[INFO] +- com.aliyun.odps:odps-sdk-udf:jar:0.37.10-public:provided
+[INFO] |  +- com.aliyun.odps:odps-sdk-commons:jar:0.37.10-public:provided
+[INFO] |  \- com.google.code.gson:gson:jar:2.2.4:provided
+[INFO] +- org.apache.calcite:calcite-core:jar:1.26.0:provided
+[INFO] |  +- org.apache.calcite:calcite-linq4j:jar:1.26.0:provided
+[INFO] |  +- org.apiguardian:apiguardian-api:jar:1.1.0:provided
+[INFO] |  +- com.esri.geometry:esri-geometry-api:jar:2.2.0:provided
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.10.0:provided
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:provided
+[INFO] |  +- com.google.uzaygezen:uzaygezen-core:jar:0.2:provided
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:provided
+[INFO] |  |  \- net.minidev:json-smart:jar:2.3:provided
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.2:provided
+[INFO] |  |        \- org.ow2.asm:asm:jar:5.0.4:provided
+[INFO] |  +- com.yahoo.datasketches:sketches-core:jar:0.9.0:provided
+[INFO] |  |  \- com.yahoo.datasketches:memory:jar:0.9.0:provided
+[INFO] |  +- commons-codec:commons-codec:jar:1.12:provided
+[INFO] |  +- net.hydromatic:aggdesigner-algorithm:jar:6.0:provided
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.8:provided
+[INFO] |  +- commons-io:commons-io:jar:2.4:provided
+[INFO] |  +- org.codehaus.janino:commons-compiler:jar:3.0.11:provided
+[INFO] |  \- org.codehaus.janino:janino:jar:3.0.11:provided
+[INFO] +- com.google.guava:guava:jar:30.1-jre:provided
+[INFO] |  +- com.google.guava:failureaccess:jar:1.0.1:provided
+[INFO] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:provided
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.3.4:provided
+[INFO] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:provided
+[INFO] +- com.alibaba:dubbo:jar:2.5.3:provided
+[INFO] |  +- org.springframework:spring:jar:2.5.6.SEC03:provided
+[INFO] |  \- org.jboss.netty:netty:jar:3.2.5.Final:provided
+[INFO] +- org.apache.curator:curator-recipes:jar:4.2.0:provided
+[INFO] |  \- org.apache.curator:curator-framework:jar:4.2.0:provided
+[INFO] |     \- org.apache.curator:curator-client:jar:4.2.0:provided
+[INFO] +- com.alibaba:fastjson:jar:1.2.73:provided
+[INFO] +- org.apache.hive:hive-jdbc:jar:3.1.2:provided
+[INFO] |  +- org.apache.hive:hive-common:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive:hive-classification:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive:hive-storage-api:jar:2.7.0:provided
+[INFO] |  |  +- commons-cli:commons-cli:jar:1.2:provided
+[INFO] |  |  +- org.apache.orc:orc-core:jar:1.5.6:provided
+[INFO] |  |  |  +- org.apache.orc:orc-shims:jar:1.5.6:provided
+[INFO] |  |  |  +- io.airlift:aircompressor:jar:0.10:provided
+[INFO] |  |  |  \- org.apache.hadoop:hadoop-hdfs:jar:2.2.0:provided
+[INFO] |  |  |     +- com.sun.jersey:jersey-core:jar:1.9:provided
+[INFO] |  |  |     +- com.sun.jersey:jersey-server:jar:1.9:provided
+[INFO] |  |  |     |  \- asm:asm:jar:3.1:provided
+[INFO] |  |  |     \- xmlenc:xmlenc:jar:0.52:provided
+[INFO] |  |  +- jline:jline:jar:2.12:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-http:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-util:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-rewrite:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-client:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-server:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-io:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-servlet:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-security:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-webapp:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-xml:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.apache.logging.log4j:log4j-1.2-api:jar:2.10.0:provided
+[INFO] |  |  +- org.apache.logging.log4j:log4j-web:jar:2.10.0:provided
+[INFO] |  |  +- org.apache.logging.log4j:log4j-slf4j-impl:jar:2.10.0:provided
+[INFO] |  |  +- org.apache.commons:commons-compress:jar:1.9:provided
+[INFO] |  |  +- org.apache.ant:ant:jar:1.9.1:provided
+[INFO] |  |  |  \- org.apache.ant:ant-launcher:jar:1.9.1:provided
+[INFO] |  |  +- net.sf.jpam:jpam:jar:1.1:provided
+[INFO] |  |  +- com.tdunning:json:jar:1.8:provided
+[INFO] |  |  +- io.dropwizard.metrics:metrics-core:jar:3.1.0:provided
+[INFO] |  |  +- io.dropwizard.metrics:metrics-jvm:jar:3.1.0:provided
+[INFO] |  |  +- io.dropwizard.metrics:metrics-json:jar:3.1.0:provided
+[INFO] |  |  +- com.github.joshelser:dropwizard-metrics-hadoop-metrics2-reporter:jar:0.1.2:provided
+[INFO] |  |  |  \- org.apache.hadoop:hadoop-common:jar:2.6.0:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-annotations:jar:2.6.0:provided
+[INFO] |  |  |     +- commons-httpclient:commons-httpclient:jar:3.1:provided
+[INFO] |  |  |     +- commons-net:commons-net:jar:3.1:provided
+[INFO] |  |  |     +- commons-collections:commons-collections:jar:3.2.1:provided
+[INFO] |  |  |     +- javax.servlet:servlet-api:jar:2.5:provided
+[INFO] |  |  |     +- org.mortbay.jetty:jetty:jar:6.1.26:provided
+[INFO] |  |  |     +- org.mortbay.jetty:jetty-util:jar:6.1.26:provided
+[INFO] |  |  |     +- com.sun.jersey:jersey-json:jar:1.9:provided
+[INFO] |  |  |     |  +- com.sun.xml.bind:jaxb-impl:jar:2.2.3-1:provided
+[INFO] |  |  |     |  +- org.codehaus.jackson:jackson-jaxrs:jar:1.8.3:provided
+[INFO] |  |  |     |  \- org.codehaus.jackson:jackson-xc:jar:1.8.3:provided
+[INFO] |  |  |     +- tomcat:jasper-compiler:jar:5.5.23:provided
+[INFO] |  |  |     +- tomcat:jasper-runtime:jar:5.5.23:provided
+[INFO] |  |  |     +- javax.servlet.jsp:jsp-api:jar:2.1:provided
+[INFO] |  |  |     +- commons-el:commons-el:jar:1.0:provided
+[INFO] |  |  |     +- net.java.dev.jets3t:jets3t:jar:0.9.0:provided
+[INFO] |  |  |     |  \- com.jamesmurty.utils:java-xmlbuilder:jar:0.4:provided
+[INFO] |  |  |     +- commons-configuration:commons-configuration:jar:1.6:provided
+[INFO] |  |  |     |  +- commons-digester:commons-digester:jar:1.8:provided
+[INFO] |  |  |     |  |  \- commons-beanutils:commons-beanutils:jar:1.7.0:provided
+[INFO] |  |  |     |  \- commons-beanutils:commons-beanutils-core:jar:1.8.0:provided
+[INFO] |  |  |     +- com.jcraft:jsch:jar:0.1.42:provided
+[INFO] |  |  |     \- org.htrace:htrace-core:jar:3.0.4:provided
+[INFO] |  |  \- javolution:javolution:jar:5.5.1:provided
+[INFO] |  +- org.apache.hive:hive-service:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive:hive-llap-server:jar:3.1.2:provided
+[INFO] |  |  |  +- org.apache.hive:hive-llap-common:jar:3.1.2:provided
+[INFO] |  |  |  +- org.apache.hive:hive-llap-client:jar:3.1.2:provided
+[INFO] |  |  |  |  \- org.apache.curator:apache-curator:pom:2.12.0:provided
+[INFO] |  |  |  +- org.apache.hive:hive-llap-tez:jar:3.1.2:provided
+[INFO] |  |  |  +- io.netty:netty-all:jar:4.1.17.Final:provided
+[INFO] |  |  |  +- org.codehaus.jettison:jettison:jar:1.1:provided
+[INFO] |  |  |  +- org.apache.hive:hive-llap-common:test-jar:tests:3.1.2:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-hadoop2-compat:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-metrics:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-metrics-api:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  \- org.apache.hadoop:hadoop-mapreduce-client-core:jar:2.7.1:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-server:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-http:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  |  +- org.glassfish.jersey.core:jersey-server:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.jersey.core:jersey-common:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  |  +- org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  |  \- org.glassfish.hk2:osgi-resource-locator:jar:1.0.1:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.jersey.core:jersey-client:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.jersey.media:jersey-media-jaxb:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.hk2:hk2-api:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  |  +- org.glassfish.hk2:hk2-utils:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  |  \- org.glassfish.hk2.external:aopalliance-repackaged:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.hk2.external:javax.inject:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.hk2:hk2-locator:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  \- javax.validation:validation-api:jar:1.1.0.Final:provided
+[INFO] |  |  |  |  |  \- org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.25.1:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-procedure:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  |  \- org.apache.hbase:hbase-common:jar:tests:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-replication:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-prefix-tree:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.glassfish.web:javax.servlet.jsp:jar:2.3.2:provided
+[INFO] |  |  |  |  |  \- org.glassfish:javax.el:jar:3.0.1-b12:provided (version selected from constraint [3.0.0,))
+[INFO] |  |  |  |  +- javax.ws.rs:javax.ws.rs-api:jar:2.0.1:provided
+[INFO] |  |  |  |  +- com.lmax:disruptor:jar:3.3.6:provided
+[INFO] |  |  |  |  +- org.apache.hadoop:hadoop-distcp:jar:2.7.1:provided
+[INFO] |  |  |  |  \- org.apache.hadoop:hadoop-client:jar:2.7.1:provided
+[INFO] |  |  |  |     +- org.apache.hadoop:hadoop-mapreduce-client-app:jar:2.7.1:provided
+[INFO] |  |  |  |     |  +- org.apache.hadoop:hadoop-mapreduce-client-common:jar:2.7.1:provided
+[INFO] |  |  |  |     |  |  \- org.apache.hadoop:hadoop-yarn-client:jar:2.7.1:provided
+[INFO] |  |  |  |     |  \- org.apache.hadoop:hadoop-mapreduce-client-shuffle:jar:2.7.1:provided
+[INFO] |  |  |  |     \- org.apache.hadoop:hadoop-mapreduce-client-jobclient:jar:2.7.1:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-mapreduce:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-common:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  \- com.github.stephenc.findbugs:findbugs-annotations:jar:1.3.9-1:provided
+[INFO] |  |  |  \- org.apache.hbase:hbase-hadoop-compat:jar:2.0.0-alpha4:provided
+[INFO] |  |  +- javax.servlet.jsp:javax.servlet.jsp-api:jar:2.3.1:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-runner:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-plus:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-annotations:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  +- javax.annotation:javax.annotation-api:jar:1.2:provided
+[INFO] |  |  |  |  \- org.ow2.asm:asm-commons:jar:5.0.1:provided
+[INFO] |  |  |  |     \- org.ow2.asm:asm-tree:jar:5.0.1:provided
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-jaas:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:websocket-server:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-common:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  |  \- org.eclipse.jetty.websocket:websocket-api:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-client:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  \- org.eclipse.jetty.websocket:websocket-servlet:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-jndi:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty:apache-jsp:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  +- org.eclipse.jetty.toolchain:jetty-schemas:jar:3.1:provided
+[INFO] |  |  |  |  \- org.eclipse.jdt.core.compiler:ecj:jar:4.4.2:provided
+[INFO] |  |  |  \- org.eclipse.jetty:apache-jstl:jar:9.3.20.v20170531:provided
+[INFO] |  |  |     +- org.apache.taglibs:taglibs-standard-spec:jar:1.2.5:provided
+[INFO] |  |  |     \- org.apache.taglibs:taglibs-standard-impl:jar:1.2.5:provided
+[INFO] |  |  +- org.apache.thrift:libfb303:jar:0.9.3:provided
+[INFO] |  |  \- org.jamon:jamon-runtime:jar:2.3.1:provided
+[INFO] |  +- org.apache.hive:hive-serde:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.arrow:arrow-vector:jar:0.8.0:provided
+[INFO] |  |  |  +- org.apache.arrow:arrow-format:jar:0.8.0:provided
+[INFO] |  |  |  +- org.apache.arrow:arrow-memory:jar:0.8.0:provided
+[INFO] |  |  |  +- io.netty:netty-buffer:jar:4.1.17.Final:provided
+[INFO] |  |  |  \- io.netty:netty-common:jar:4.1.17.Final:provided
+[INFO] |  |  +- com.carrotsearch:hppc:jar:0.7.2:provided
+[INFO] |  |  +- com.vlkan:flatbuffers:jar:1.2.0-3f79e055:provided
+[INFO] |  |  +- org.apache.avro:avro:jar:1.7.7:provided
+[INFO] |  |  |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:provided
+[INFO] |  |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.3:provided
+[INFO] |  |  +- net.sf.opencsv:opencsv:jar:2.3:provided
+[INFO] |  |  \- org.apache.parquet:parquet-hadoop-bundle:jar:1.10.0:provided
+[INFO] |  +- org.apache.hive:hive-metastore:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive:hive-standalone-metastore:jar:3.1.2:provided
+[INFO] |  |  |  +- org.datanucleus:datanucleus-api-jdo:jar:4.2.4:provided
+[INFO] |  |  |  +- org.datanucleus:datanucleus-core:jar:4.1.17:provided
+[INFO] |  |  |  +- org.datanucleus:datanucleus-rdbms:jar:4.1.19:provided
+[INFO] |  |  |  +- org.datanucleus:javax.jdo:jar:3.2.0-m3:provided
+[INFO] |  |  |  |  \- javax.transaction:transaction-api:jar:1.1:provided
+[INFO] |  |  |  \- sqlline:sqlline:jar:1.3.0:provided
+[INFO] |  |  +- org.apache.hbase:hbase-client:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  +- org.apache.hbase.thirdparty:hbase-shaded-protobuf:jar:1.0.1:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-protocol-shaded:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-protocol:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  +- org.apache.hbase.thirdparty:hbase-shaded-miscellaneous:jar:1.0.1:provided
+[INFO] |  |  |  +- org.apache.hbase.thirdparty:hbase-shaded-netty:jar:1.0.1:provided
+[INFO] |  |  |  +- org.apache.htrace:htrace-core:jar:3.2.0-incubating:provided
+[INFO] |  |  |  +- org.jruby.jcodings:jcodings:jar:1.0.18:provided
+[INFO] |  |  |  +- org.jruby.joni:joni:jar:2.1.11:provided
+[INFO] |  |  |  +- org.apache.commons:commons-crypto:jar:1.0.0:provided
+[INFO] |  |  |  +- org.apache.hadoop:hadoop-auth:jar:2.7.1:provided
+[INFO] |  |  |  |  \- org.apache.directory.server:apacheds-kerberos-codec:jar:2.0.0-M15:provided
+[INFO] |  |  |  |     +- org.apache.directory.server:apacheds-i18n:jar:2.0.0-M15:provided
+[INFO] |  |  |  |     +- org.apache.directory.api:api-asn1-api:jar:1.0.0-M20:provided
+[INFO] |  |  |  |     \- org.apache.directory.api:api-util:jar:1.0.0-M20:provided
+[INFO] |  |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:provided
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:2.6.1:provided
+[INFO] |  |  +- javax.jdo:jdo-api:jar:3.0.1:provided
+[INFO] |  |  +- co.cask.tephra:tephra-api:jar:0.6.0:provided
+[INFO] |  |  +- co.cask.tephra:tephra-core:jar:0.6.0:provided
+[INFO] |  |  |  +- com.google.inject:guice:jar:3.0:provided
+[INFO] |  |  |  |  \- javax.inject:javax.inject:jar:1:provided
+[INFO] |  |  |  +- com.google.inject.extensions:guice-assistedinject:jar:3.0:provided
+[INFO] |  |  |  +- it.unimi.dsi:fastutil:jar:6.5.6:provided
+[INFO] |  |  |  +- org.apache.twill:twill-common:jar:0.6.0-incubating:provided
+[INFO] |  |  |  +- org.apache.twill:twill-core:jar:0.6.0-incubating:provided
+[INFO] |  |  |  |  \- org.apache.twill:twill-api:jar:0.6.0-incubating:provided
+[INFO] |  |  |  +- org.apache.twill:twill-discovery-api:jar:0.6.0-incubating:provided
+[INFO] |  |  |  +- org.apache.twill:twill-discovery-core:jar:0.6.0-incubating:provided
+[INFO] |  |  |  \- org.apache.twill:twill-zookeeper:jar:0.6.0-incubating:provided
+[INFO] |  |  \- co.cask.tephra:tephra-hbase-compat-1.0:jar:0.6.0:provided
+[INFO] |  +- org.apache.hive:hive-shims:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive.shims:hive-shims-common:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive.shims:hive-shims-0.23:jar:3.1.2:provided
+[INFO] |  |  |  \- org.apache.hadoop:hadoop-yarn-server-resourcemanager:jar:3.1.0:provided
+[INFO] |  |  |     +- com.google.inject.extensions:guice-servlet:jar:4.0:provided
+[INFO] |  |  |     +- com.sun.jersey.contribs:jersey-guice:jar:1.19:provided
+[INFO] |  |  |     |  \- com.sun.jersey:jersey-servlet:jar:1.19:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-common:jar:3.1.0:provided
+[INFO] |  |  |     |  +- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.7.8:provided
+[INFO] |  |  |     |  \- com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.7.8:provided
+[INFO] |  |  |     |     \- com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.7.8:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-api:jar:3.1.0:provided
+[INFO] |  |  |     +- com.sun.jersey:jersey-client:jar:1.19:provided
+[INFO] |  |  |     +- org.eclipse.jetty:jetty-util-ajax:jar:9.3.19.v20170502:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-server-common:jar:3.1.0:provided
+[INFO] |  |  |     |  +- org.apache.hadoop:hadoop-yarn-registry:jar:3.1.0:provided
+[INFO] |  |  |     |  |  +- commons-daemon:commons-daemon:jar:1.0.13:provided
+[INFO] |  |  |     |  |  \- dnsjava:dnsjava:jar:2.1.7:provided
+[INFO] |  |  |     |  +- org.apache.geronimo.specs:geronimo-jcache_1.0_spec:jar:1.0-alpha-1:provided
+[INFO] |  |  |     |  +- org.ehcache:ehcache:jar:3.3.1:provided
+[INFO] |  |  |     |  \- com.microsoft.sqlserver:mssql-jdbc:jar:6.2.1.jre7:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-server-applicationhistoryservice:jar:3.1.0:provided
+[INFO] |  |  |     |  \- de.ruedigermoeller:fst:jar:2.50:provided
+[INFO] |  |  |     |     \- com.cedarsoftware:java-util:jar:1.9.0:provided
+[INFO] |  |  |     |        \- com.cedarsoftware:json-io:jar:2.5.1:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-server-web-proxy:jar:3.1.0:provided
+[INFO] |  |  |     \- org.fusesource.leveldbjni:leveldbjni-all:jar:1.8:provided
+[INFO] |  |  \- org.apache.hive.shims:hive-shims-scheduler:jar:3.1.2:provided
+[INFO] |  +- org.apache.hive:hive-service-rpc:jar:3.1.2:provided
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:provided
+[INFO] |  +- org.apache.thrift:libthrift:jar:0.9.3:provided
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.4.6:provided
+[INFO] |  |  \- io.netty:netty:jar:3.7.0.Final:provided
+[INFO] |  \- org.apache.hive:hive-upgrade-acid:jar:3.1.2:provided
+[INFO] +- ru.yandex.clickhouse:clickhouse-jdbc:jar:0.2.4:provided
+[INFO] |  +- org.apache.httpcomponents:httpmime:jar:4.5.2:provided
+[INFO] |  +- net.jpountz.lz4:lz4:jar:1.3.0:provided
+[INFO] |  \- javax.xml.bind:jaxb-api:jar:2.3.0:provided
+[INFO] +- org.springframework:spring-test:jar:4.3.20.RELEASE:test
+[INFO] +- com.aliyun.odps:odps-jdbc:jar:1.6:test
+[INFO] |  \- com.aliyun.odps:odps-sdk-core:jar:0.18.3-public:test
+[INFO] |     +- org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:provided
+[INFO] |     +- net.sourceforge.javacsv:javacsv:jar:2.0:test
+[INFO] |     +- org.bouncycastle:bcprov-jdk15on:jar:1.52:test
+[INFO] |     \- org.xerial.snappy:snappy-java:jar:1.1.1.6:provided
+[INFO] +- junit:junit:jar:4.13.1:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.apache.derby:derby:jar:10.12.1.1:test
+[INFO] +- commons-dbcp:commons-dbcp:jar:1.4:test
+[INFO] |  \- commons-pool:commons-pool:jar:1.5.4:provided
+[INFO] +- org.apache.commons:commons-dbcp2:jar:2.5.0:test
+[INFO] |  \- org.apache.commons:commons-pool2:jar:2.6.0:test
+[INFO] +- com.jolbox:bonecp:jar:0.8.0.RELEASE:test
+[INFO] +- com.jolbox:bonecp-spring:jar:0.8.0.RELEASE:test
+[INFO] +- c3p0:c3p0:jar:0.9.1.2:test
+[INFO] +- org.apache.tomcat:tomcat-jdbc:jar:8.0.32:test
+[INFO] |  \- org.apache.tomcat:tomcat-juli:jar:8.0.32:test
+[INFO] +- org.nutz:nutz:jar:1.r.55:test
+[INFO] +- org.javasimon:javasimon-spring:jar:4.1.1:test
+[INFO] |  \- org.javasimon:javasimon-core:jar:4.1.1:test
+[INFO] +- org.javasimon:javasimon-jdbc41:jar:4.1.1:test
+[INFO] +- org.javasimon:javasimon-javaee:jar:4.1.1:test
+[INFO] +- org.apache.calcite:calcite-druid:jar:1.26.0:test
+[INFO] |  \- joda-time:joda-time:jar:2.8.1:provided
+[INFO] +- commons-dbutils:commons-dbutils:jar:1.6:test
+[INFO] +- org.antlr:antlr4:jar:4.7:test
+[INFO] |  +- org.antlr:antlr4-runtime:jar:4.7:test
+[INFO] |  +- org.antlr:antlr-runtime:jar:3.5.2:provided
+[INFO] |  +- org.antlr:ST4:jar:4.0.8:test
+[INFO] |  +- org.abego.treelayout:org.abego.treelayout.core:jar:1.0.3:test
+[INFO] |  +- org.glassfish:javax.json:jar:1.0.4:test
+[INFO] |  \- com.ibm.icu:icu4j:jar:58.2:test
+[INFO] +- org.openjdk.jmh:jmh-core:jar:1.19:test
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:4.6:test
+[INFO] |  \- org.apache.commons:commons-math3:jar:3.2:provided
+[INFO] +- org.openjdk.jmh:jmh-generator-annprocess:jar:1.19:test
+[INFO] +- org.mariadb.jdbc:mariadb-java-client:jar:2.4.0:test
+[INFO] +- com.sun:tools:jar:1.8:system
+[INFO] +- com.sun:jconsole:jar:1.8:system
+[INFO] +- org.apache.curator:curator-test:jar:4.2.0:test
+[INFO] +- com.alibaba:jconsole:jar:1.8.0:system
+[INFO] \- com.alibaba:tools:jar:1.8.0:system
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.073 s
+[INFO] Finished at: 2021-11-08T20:22:37+08:00
+[INFO] Final Memory: 53M/494M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.alibaba:druid-demo:jar:1.2.9_preview_01
+[WARNING] 'dependencies.dependency.systemPath' for com.sun:tools:jar should not point at files within the project directory, ${project.basedir}/lib/openjdk-1.8-tools.jar will be unresolvable by dependent projects @ com.alibaba:druid:1.2.9_preview_01, /Users/zhuqi/Documents/workspace/druid/pom.xml, line 711, column 16
+[WARNING] 'dependencies.dependency.systemPath' for com.sun:jconsole:jar should not point at files within the project directory, ${project.basedir}/lib/openjdk-1.8-jconsole.jar will be unresolvable by dependent projects @ com.alibaba:druid:1.2.9_preview_01, /Users/zhuqi/Documents/workspace/druid/pom.xml, line 719, column 16
+[WARNING] 'build.plugins.plugin.version' for org.springframework.boot:spring-boot-maven-plugin is missing. @ com.alibaba:druid-demo:[unknown-version], /Users/zhuqi/Documents/workspace/druid/druid-demo/pom.xml, line 117, column 21
+[WARNING] 'dependencies.dependency.scope' for org.springframework.boot:spring-boot-dependencies:pom must be one of [provided, compile, runtime, test, system] but is 'import'. @ com.alibaba:druid-demo:[unknown-version], /Users/zhuqi/Documents/workspace/druid/druid-demo/pom.xml, line 71, column 20
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building druid-demo 1.2.9_preview_01
+[INFO] ------------------------------------------------------------------------
+[WARNING] The POM for com.alibaba:druid:jar:1.2.9_preview_01 is invalid, transitive dependencies (if any) will not be available, enable debug logging for more details
+Downloading from jvnet-nexus-snapshots: https://maven.java.net/content/repositories/snapshots/org/glassfish/javax.el/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/glassfish/javax.el/maven-metadata.xml
+Downloading from apache.snapshots: https://repository.apache.org/snapshots/org/glassfish/javax.el/maven-metadata.xml
+Downloading from java.net.Releases: https://maven.java.net/content/repositories/releases/org/glassfish/javax.el/maven-metadata.xml
+[WARNING] Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to apache.snapshots (https://repository.apache.org/snapshots): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to java.net.Releases (https://maven.java.net/content/repositories/releases): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to jvnet-nexus-snapshots (https://maven.java.net/content/repositories/snapshots): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ druid-demo ---
+[WARNING] Failure to transfer org.glassfish:javax.el/maven-metadata.xml from https://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced. Original error: Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to central (https://repo.maven.apache.org/maven2): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Failure to transfer org.glassfish:javax.el/maven-metadata.xml from https://repository.apache.org/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of apache.snapshots has elapsed or updates are forced. Original error: Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to apache.snapshots (https://repository.apache.org/snapshots): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Failure to transfer org.glassfish:javax.el/maven-metadata.xml from https://maven.java.net/content/repositories/releases was cached in the local repository, resolution will not be reattempted until the update interval of java.net.Releases has elapsed or updates are forced. Original error: Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to java.net.Releases (https://maven.java.net/content/repositories/releases): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[WARNING] Failure to transfer org.glassfish:javax.el/maven-metadata.xml from https://maven.java.net/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of jvnet-nexus-snapshots has elapsed or updates are forced. Original error: Could not transfer metadata org.glassfish:javax.el/maven-metadata.xml from/to jvnet-nexus-snapshots (https://maven.java.net/content/repositories/snapshots): sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+[INFO] com.alibaba:druid-demo:jar:1.2.9_preview_01
+[INFO] +- org.mybatis.generator:mybatis-generator-core:jar:1.3.7:compile
+[INFO] +- mysql:mysql-connector-java:jar:5.1.47:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-core:jar:2.11.2:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-databind:jar:2.11.2:compile
+[INFO] +- com.fasterxml.jackson.core:jackson-annotations:jar:2.11.2:compile
+[INFO] +- org.aspectj:aspectjweaver:jar:1.7.4:compile
+[INFO] +- org.aspectj:aspectjrt:jar:1.7.4:compile
+[INFO] +- org.projectlombok:lombok:jar:1.16.18:compile
+[INFO] +- org.springframework.boot:spring-boot-dependencies:pom:2.0.4.RELEASE:import
+[INFO] +- org.apache.commons:commons-collections4:jar:4.4:compile
+[INFO] +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] +- org.mybatis.spring.boot:mybatis-spring-boot-starter:jar:1.3.2:compile
+[INFO] |  +- org.springframework.boot:spring-boot-starter:jar:1.5.10.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot:jar:1.5.10.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:1.5.10.RELEASE:compile
+[INFO] |  |  +- org.springframework.boot:spring-boot-starter-logging:jar:1.5.10.RELEASE:compile
+[INFO] |  |  |  +- org.slf4j:jul-to-slf4j:jar:1.7.25:compile
+[INFO] |  |  |  \- org.slf4j:log4j-over-slf4j:jar:1.7.25:compile
+[INFO] |  |  \- org.yaml:snakeyaml:jar:1.17:runtime
+[INFO] |  +- org.springframework.boot:spring-boot-starter-jdbc:jar:1.5.10.RELEASE:compile
+[INFO] |  \- org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:jar:1.3.2:compile
+[INFO] +- com.alibaba:druid:jar:1.2.9_preview_01:compile
+[INFO] +- simple-jndi:simple-jndi:jar:0.11.4.1:provided
+[INFO] +- javax.transaction:jta:jar:1.1:provided
+[INFO] +- javax.servlet:javax.servlet-api:jar:3.1.0:provided
+[INFO] +- commons-logging:commons-logging:jar:1.2:provided
+[INFO] +- org.springframework:spring-core:jar:4.3.20.RELEASE:provided
+[INFO] +- org.springframework:spring-beans:jar:4.3.20.RELEASE:provided
+[INFO] +- org.springframework:spring-orm:jar:4.3.20.RELEASE:provided
+[INFO] |  +- org.springframework:spring-jdbc:jar:4.3.20.RELEASE:compile
+[INFO] |  \- org.springframework:spring-tx:jar:4.3.20.RELEASE:compile
+[INFO] +- org.springframework:spring-webmvc:jar:4.3.20.RELEASE:provided
+[INFO] |  +- org.springframework:spring-aop:jar:4.3.20.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context:jar:4.3.20.RELEASE:compile
+[INFO] |  +- org.springframework:spring-expression:jar:4.3.20.RELEASE:compile
+[INFO] |  \- org.springframework:spring-web:jar:4.3.20.RELEASE:provided
+[INFO] +- org.springframework:spring-ibatis:jar:2.0.8:provided
+[INFO] |  \- org.springframework:spring-dao:jar:2.0.8:provided
+[INFO] |     \- aopalliance:aopalliance:jar:1.0:provided
+[INFO] +- org.mybatis:mybatis:jar:3.4.0:provided
+[INFO] +- org.mybatis:mybatis-spring:jar:1.3.0:provided
+[INFO] +- log4j:log4j:jar:1.2.17:provided
+[INFO] +- org.slf4j:slf4j-api:jar:1.7.9:provided
+[INFO] +- org.slf4j:slf4j-log4j12:jar:1.7.9:provided
+[INFO] +- org.apache.logging.log4j:log4j-api:jar:2.13.2:provided
+[INFO] +- org.apache.logging.log4j:log4j-core:jar:2.13.2:provided
+[INFO] +- net.sourceforge.jtds:jtds:jar:1.3.0:provided
+[INFO] +- org.postgresql:postgresql:jar:42.2.18:provided
+[INFO] |  \- org.checkerframework:checker-qual:jar:3.5.0:provided
+[INFO] +- com.oracle.ojdbc:ojdbc8:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:ucp:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:oraclepki:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:osdt_cert:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:osdt_core:jar:19.3.0.0:provided
+[INFO] |  +- com.oracle.ojdbc:simplefan:jar:19.3.0.0:provided
+[INFO] |  \- com.oracle.ojdbc:ons:jar:19.3.0.0:provided
+[INFO] +- org.apache.kylin:kylin-jdbc:jar:2.0.0:provided
+[INFO] |  +- org.apache.httpcomponents:httpclient:jar:4.2.5:provided
+[INFO] |  +- org.apache.calcite.avatica:avatica-core:jar:1.9.0:provided
+[INFO] |  |  +- org.apache.calcite.avatica:avatica-metrics:jar:1.9.0:provided
+[INFO] |  |  \- com.google.protobuf:protobuf-java:jar:3.1.0:provided
+[INFO] |  \- org.slf4j:jcl-over-slf4j:jar:1.7.21:compile
+[INFO] +- io.trino:trino-jdbc:jar:352:provided
+[INFO] +- org.quartz-scheduler:quartz:jar:2.3.2:provided
+[INFO] |  +- com.mchange:c3p0:jar:0.9.5.4:provided
+[INFO] |  +- com.mchange:mchange-commons-java:jar:0.2.15:provided
+[INFO] |  \- com.zaxxer:HikariCP-java7:jar:2.4.13:provided
+[INFO] +- org.apache.ibatis:ibatis-sqlmap:jar:2.3.4.726:provided
+[INFO] +- com.h2database:h2:jar:1.4.199:provided
+[INFO] +- org.hibernate:hibernate-core:jar:5.1.0.Final:provided
+[INFO] |  +- org.jboss.logging:jboss-logging:jar:3.3.0.Final:provided
+[INFO] |  +- org.hibernate.javax.persistence:hibernate-jpa-2.1-api:jar:1.0.0.Final:provided
+[INFO] |  +- org.javassist:javassist:jar:3.20.0-GA:provided
+[INFO] |  +- antlr:antlr:jar:2.7.7:provided
+[INFO] |  +- org.apache.geronimo.specs:geronimo-jta_1.1_spec:jar:1.1.1:provided
+[INFO] |  +- org.jboss:jandex:jar:2.0.0.Final:provided
+[INFO] |  +- com.fasterxml:classmate:jar:1.3.0:provided
+[INFO] |  +- dom4j:dom4j:jar:1.6.1:provided
+[INFO] |  |  \- xml-apis:xml-apis:jar:1.0.b2:provided
+[INFO] |  \- org.hibernate.common:hibernate-commons-annotations:jar:5.0.1.Final:provided
+[INFO] +- org.hibernate:hibernate-c3p0:jar:5.1.0.Final:provided
+[INFO] +- com.aliyun.odps:odps-sdk-udf:jar:0.37.10-public:provided
+[INFO] |  +- com.aliyun.odps:odps-sdk-commons:jar:0.37.10-public:provided
+[INFO] |  \- com.google.code.gson:gson:jar:2.2.4:provided
+[INFO] +- org.apache.calcite:calcite-core:jar:1.26.0:provided
+[INFO] |  +- org.apache.calcite:calcite-linq4j:jar:1.26.0:provided
+[INFO] |  +- org.apiguardian:apiguardian-api:jar:1.1.0:provided
+[INFO] |  +- com.esri.geometry:esri-geometry-api:jar:2.2.0:provided
+[INFO] |  +- com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.10.0:provided
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:3.0.2:provided
+[INFO] |  +- com.google.uzaygezen:uzaygezen-core:jar:0.2:provided
+[INFO] |  +- com.jayway.jsonpath:json-path:jar:2.4.0:provided
+[INFO] |  |  \- net.minidev:json-smart:jar:2.3:provided
+[INFO] |  |     \- net.minidev:accessors-smart:jar:1.2:provided
+[INFO] |  |        \- org.ow2.asm:asm:jar:5.0.4:provided
+[INFO] |  +- com.yahoo.datasketches:sketches-core:jar:0.9.0:provided
+[INFO] |  |  \- com.yahoo.datasketches:memory:jar:0.9.0:provided
+[INFO] |  +- commons-codec:commons-codec:jar:1.12:provided
+[INFO] |  +- net.hydromatic:aggdesigner-algorithm:jar:6.0:provided
+[INFO] |  +- org.apache.commons:commons-lang3:jar:3.8:provided
+[INFO] |  +- commons-io:commons-io:jar:2.4:provided
+[INFO] |  +- org.codehaus.janino:commons-compiler:jar:3.0.11:provided
+[INFO] |  \- org.codehaus.janino:janino:jar:3.0.11:provided
+[INFO] +- com.google.guava:guava:jar:30.1-jre:provided
+[INFO] |  +- com.google.guava:failureaccess:jar:1.0.1:provided
+[INFO] |  +- com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:provided
+[INFO] |  +- com.google.errorprone:error_prone_annotations:jar:2.3.4:provided
+[INFO] |  \- com.google.j2objc:j2objc-annotations:jar:1.3:provided
+[INFO] +- com.alibaba:dubbo:jar:2.5.3:provided
+[INFO] |  +- org.springframework:spring:jar:2.5.6.SEC03:provided
+[INFO] |  \- org.jboss.netty:netty:jar:3.2.5.Final:provided
+[INFO] +- org.apache.curator:curator-recipes:jar:4.2.0:provided
+[INFO] |  \- org.apache.curator:curator-framework:jar:4.2.0:provided
+[INFO] |     \- org.apache.curator:curator-client:jar:4.2.0:provided
+[INFO] +- com.alibaba:fastjson:jar:1.2.73:provided
+[INFO] +- org.apache.hive:hive-jdbc:jar:3.1.2:provided
+[INFO] |  +- org.apache.hive:hive-common:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive:hive-classification:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive:hive-storage-api:jar:2.7.0:provided
+[INFO] |  |  +- commons-cli:commons-cli:jar:1.2:provided
+[INFO] |  |  +- org.apache.orc:orc-core:jar:1.5.6:provided
+[INFO] |  |  |  +- org.apache.orc:orc-shims:jar:1.5.6:provided
+[INFO] |  |  |  +- io.airlift:aircompressor:jar:0.10:provided
+[INFO] |  |  |  \- org.apache.hadoop:hadoop-hdfs:jar:2.2.0:provided
+[INFO] |  |  |     +- com.sun.jersey:jersey-core:jar:1.9:provided
+[INFO] |  |  |     +- com.sun.jersey:jersey-server:jar:1.9:provided
+[INFO] |  |  |     |  \- asm:asm:jar:3.1:provided
+[INFO] |  |  |     \- xmlenc:xmlenc:jar:0.52:provided
+[INFO] |  |  +- jline:jline:jar:2.12:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-http:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-util:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-rewrite:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-client:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-server:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-io:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-servlet:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-security:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-webapp:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  \- org.eclipse.jetty:jetty-xml:jar:9.3.20.v20170531:provided
+[INFO] |  |  +- org.apache.logging.log4j:log4j-1.2-api:jar:2.10.0:provided
+[INFO] |  |  +- org.apache.logging.log4j:log4j-web:jar:2.10.0:provided
+[INFO] |  |  +- org.apache.logging.log4j:log4j-slf4j-impl:jar:2.10.0:provided
+[INFO] |  |  +- org.apache.commons:commons-compress:jar:1.9:provided
+[INFO] |  |  +- org.apache.ant:ant:jar:1.9.1:provided
+[INFO] |  |  |  \- org.apache.ant:ant-launcher:jar:1.9.1:provided
+[INFO] |  |  +- net.sf.jpam:jpam:jar:1.1:provided
+[INFO] |  |  +- com.tdunning:json:jar:1.8:provided
+[INFO] |  |  +- io.dropwizard.metrics:metrics-core:jar:3.1.0:provided
+[INFO] |  |  +- io.dropwizard.metrics:metrics-jvm:jar:3.1.0:provided
+[INFO] |  |  +- io.dropwizard.metrics:metrics-json:jar:3.1.0:provided
+[INFO] |  |  +- com.github.joshelser:dropwizard-metrics-hadoop-metrics2-reporter:jar:0.1.2:provided
+[INFO] |  |  |  \- org.apache.hadoop:hadoop-common:jar:2.6.0:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-annotations:jar:2.6.0:provided
+[INFO] |  |  |     +- commons-httpclient:commons-httpclient:jar:3.1:provided
+[INFO] |  |  |     +- commons-net:commons-net:jar:3.1:provided
+[INFO] |  |  |     +- commons-collections:commons-collections:jar:3.2.1:provided
+[INFO] |  |  |     +- javax.servlet:servlet-api:jar:2.5:provided
+[INFO] |  |  |     +- org.mortbay.jetty:jetty:jar:6.1.26:provided
+[INFO] |  |  |     +- org.mortbay.jetty:jetty-util:jar:6.1.26:provided
+[INFO] |  |  |     +- com.sun.jersey:jersey-json:jar:1.9:provided
+[INFO] |  |  |     |  +- com.sun.xml.bind:jaxb-impl:jar:2.2.3-1:provided
+[INFO] |  |  |     |  +- org.codehaus.jackson:jackson-jaxrs:jar:1.8.3:provided
+[INFO] |  |  |     |  \- org.codehaus.jackson:jackson-xc:jar:1.8.3:provided
+[INFO] |  |  |     +- tomcat:jasper-compiler:jar:5.5.23:provided
+[INFO] |  |  |     +- tomcat:jasper-runtime:jar:5.5.23:provided
+[INFO] |  |  |     +- javax.servlet.jsp:jsp-api:jar:2.1:provided
+[INFO] |  |  |     +- commons-el:commons-el:jar:1.0:provided
+[INFO] |  |  |     +- net.java.dev.jets3t:jets3t:jar:0.9.0:provided
+[INFO] |  |  |     |  \- com.jamesmurty.utils:java-xmlbuilder:jar:0.4:provided
+[INFO] |  |  |     +- commons-configuration:commons-configuration:jar:1.6:provided
+[INFO] |  |  |     |  +- commons-digester:commons-digester:jar:1.8:provided
+[INFO] |  |  |     |  |  \- commons-beanutils:commons-beanutils:jar:1.7.0:provided
+[INFO] |  |  |     |  \- commons-beanutils:commons-beanutils-core:jar:1.8.0:provided
+[INFO] |  |  |     +- com.jcraft:jsch:jar:0.1.42:provided
+[INFO] |  |  |     \- org.htrace:htrace-core:jar:3.0.4:provided
+[INFO] |  |  \- javolution:javolution:jar:5.5.1:provided
+[INFO] |  +- org.apache.hive:hive-service:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive:hive-llap-server:jar:3.1.2:provided
+[INFO] |  |  |  +- org.apache.hive:hive-llap-common:jar:3.1.2:provided
+[INFO] |  |  |  +- org.apache.hive:hive-llap-client:jar:3.1.2:provided
+[INFO] |  |  |  |  \- org.apache.curator:apache-curator:pom:2.12.0:provided
+[INFO] |  |  |  +- org.apache.hive:hive-llap-tez:jar:3.1.2:provided
+[INFO] |  |  |  +- io.netty:netty-all:jar:4.1.17.Final:provided
+[INFO] |  |  |  +- org.codehaus.jettison:jettison:jar:1.1:provided
+[INFO] |  |  |  +- org.apache.hive:hive-llap-common:test-jar:tests:3.1.2:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-hadoop2-compat:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-metrics:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-metrics-api:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  \- org.apache.hadoop:hadoop-mapreduce-client-core:jar:2.7.1:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-server:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-http:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  |  +- org.glassfish.jersey.core:jersey-server:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.jersey.core:jersey-common:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  |  +- org.glassfish.jersey.bundles.repackaged:jersey-guava:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  |  \- org.glassfish.hk2:osgi-resource-locator:jar:1.0.1:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.jersey.core:jersey-client:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.jersey.media:jersey-media-jaxb:jar:2.25.1:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.hk2:hk2-api:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  |  +- org.glassfish.hk2:hk2-utils:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  |  \- org.glassfish.hk2.external:aopalliance-repackaged:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.hk2.external:javax.inject:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  +- org.glassfish.hk2:hk2-locator:jar:2.5.0-b32:provided
+[INFO] |  |  |  |  |  |  \- javax.validation:validation-api:jar:1.1.0.Final:provided
+[INFO] |  |  |  |  |  \- org.glassfish.jersey.containers:jersey-container-servlet-core:jar:2.25.1:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-procedure:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  |  \- org.apache.hbase:hbase-common:jar:tests:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-replication:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.apache.hbase:hbase-prefix-tree:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  +- org.glassfish.web:javax.servlet.jsp:jar:2.3.2:provided
+[INFO] |  |  |  |  |  \- org.glassfish:javax.el:jar:3.0.1-b12:provided (version selected from constraint [3.0.0,))
+[INFO] |  |  |  |  +- javax.ws.rs:javax.ws.rs-api:jar:2.0.1:provided
+[INFO] |  |  |  |  +- com.lmax:disruptor:jar:3.3.6:provided
+[INFO] |  |  |  |  +- org.apache.hadoop:hadoop-distcp:jar:2.7.1:provided
+[INFO] |  |  |  |  \- org.apache.hadoop:hadoop-client:jar:2.7.1:provided
+[INFO] |  |  |  |     +- org.apache.hadoop:hadoop-mapreduce-client-app:jar:2.7.1:provided
+[INFO] |  |  |  |     |  +- org.apache.hadoop:hadoop-mapreduce-client-common:jar:2.7.1:provided
+[INFO] |  |  |  |     |  |  \- org.apache.hadoop:hadoop-yarn-client:jar:2.7.1:provided
+[INFO] |  |  |  |     |  \- org.apache.hadoop:hadoop-mapreduce-client-shuffle:jar:2.7.1:provided
+[INFO] |  |  |  |     \- org.apache.hadoop:hadoop-mapreduce-client-jobclient:jar:2.7.1:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-mapreduce:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-common:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  |  \- com.github.stephenc.findbugs:findbugs-annotations:jar:1.3.9-1:provided
+[INFO] |  |  |  \- org.apache.hbase:hbase-hadoop-compat:jar:2.0.0-alpha4:provided
+[INFO] |  |  +- javax.servlet.jsp:javax.servlet.jsp-api:jar:2.3.1:provided
+[INFO] |  |  +- org.eclipse.jetty:jetty-runner:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-plus:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-annotations:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  +- javax.annotation:javax.annotation-api:jar:1.2:provided
+[INFO] |  |  |  |  \- org.ow2.asm:asm-commons:jar:5.0.1:provided
+[INFO] |  |  |  |     \- org.ow2.asm:asm-tree:jar:5.0.1:provided
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-jaas:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty.websocket:websocket-server:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-common:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  |  \- org.eclipse.jetty.websocket:websocket-api:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  +- org.eclipse.jetty.websocket:websocket-client:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  \- org.eclipse.jetty.websocket:websocket-servlet:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty:jetty-jndi:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  +- org.eclipse.jetty:apache-jsp:jar:9.3.20.v20170531:provided
+[INFO] |  |  |  |  +- org.eclipse.jetty.toolchain:jetty-schemas:jar:3.1:provided
+[INFO] |  |  |  |  \- org.eclipse.jdt.core.compiler:ecj:jar:4.4.2:provided
+[INFO] |  |  |  \- org.eclipse.jetty:apache-jstl:jar:9.3.20.v20170531:provided
+[INFO] |  |  |     +- org.apache.taglibs:taglibs-standard-spec:jar:1.2.5:provided
+[INFO] |  |  |     \- org.apache.taglibs:taglibs-standard-impl:jar:1.2.5:provided
+[INFO] |  |  +- org.apache.thrift:libfb303:jar:0.9.3:provided
+[INFO] |  |  \- org.jamon:jamon-runtime:jar:2.3.1:provided
+[INFO] |  +- org.apache.hive:hive-serde:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.arrow:arrow-vector:jar:0.8.0:provided
+[INFO] |  |  |  +- org.apache.arrow:arrow-format:jar:0.8.0:provided
+[INFO] |  |  |  +- org.apache.arrow:arrow-memory:jar:0.8.0:provided
+[INFO] |  |  |  +- io.netty:netty-buffer:jar:4.1.17.Final:provided
+[INFO] |  |  |  \- io.netty:netty-common:jar:4.1.17.Final:provided
+[INFO] |  |  +- com.carrotsearch:hppc:jar:0.7.2:provided
+[INFO] |  |  +- com.vlkan:flatbuffers:jar:1.2.0-3f79e055:provided
+[INFO] |  |  +- org.apache.avro:avro:jar:1.7.7:provided
+[INFO] |  |  |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:provided
+[INFO] |  |  |  \- com.thoughtworks.paranamer:paranamer:jar:2.3:provided
+[INFO] |  |  +- net.sf.opencsv:opencsv:jar:2.3:provided
+[INFO] |  |  \- org.apache.parquet:parquet-hadoop-bundle:jar:1.10.0:provided
+[INFO] |  +- org.apache.hive:hive-metastore:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive:hive-standalone-metastore:jar:3.1.2:provided
+[INFO] |  |  |  +- org.datanucleus:datanucleus-api-jdo:jar:4.2.4:provided
+[INFO] |  |  |  +- org.datanucleus:datanucleus-core:jar:4.1.17:provided
+[INFO] |  |  |  +- org.datanucleus:datanucleus-rdbms:jar:4.1.19:provided
+[INFO] |  |  |  +- org.datanucleus:javax.jdo:jar:3.2.0-m3:provided
+[INFO] |  |  |  |  \- javax.transaction:transaction-api:jar:1.1:provided
+[INFO] |  |  |  \- sqlline:sqlline:jar:1.3.0:provided
+[INFO] |  |  +- org.apache.hbase:hbase-client:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  +- org.apache.hbase.thirdparty:hbase-shaded-protobuf:jar:1.0.1:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-protocol-shaded:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  +- org.apache.hbase:hbase-protocol:jar:2.0.0-alpha4:provided
+[INFO] |  |  |  +- org.apache.hbase.thirdparty:hbase-shaded-miscellaneous:jar:1.0.1:provided
+[INFO] |  |  |  +- org.apache.hbase.thirdparty:hbase-shaded-netty:jar:1.0.1:provided
+[INFO] |  |  |  +- org.apache.htrace:htrace-core:jar:3.2.0-incubating:provided
+[INFO] |  |  |  +- org.jruby.jcodings:jcodings:jar:1.0.18:provided
+[INFO] |  |  |  +- org.jruby.joni:joni:jar:2.1.11:provided
+[INFO] |  |  |  +- org.apache.commons:commons-crypto:jar:1.0.0:provided
+[INFO] |  |  |  +- org.apache.hadoop:hadoop-auth:jar:2.7.1:provided
+[INFO] |  |  |  |  \- org.apache.directory.server:apacheds-kerberos-codec:jar:2.0.0-M15:provided
+[INFO] |  |  |  |     +- org.apache.directory.server:apacheds-i18n:jar:2.0.0-M15:provided
+[INFO] |  |  |  |     +- org.apache.directory.api:api-asn1-api:jar:1.0.0-M20:provided
+[INFO] |  |  |  |     \- org.apache.directory.api:api-util:jar:1.0.0-M20:provided
+[INFO] |  |  |  \- org.apache.yetus:audience-annotations:jar:0.5.0:provided
+[INFO] |  |  +- com.zaxxer:HikariCP:jar:2.6.1:provided
+[INFO] |  |  +- javax.jdo:jdo-api:jar:3.0.1:provided
+[INFO] |  |  +- co.cask.tephra:tephra-api:jar:0.6.0:provided
+[INFO] |  |  +- co.cask.tephra:tephra-core:jar:0.6.0:provided
+[INFO] |  |  |  +- com.google.inject:guice:jar:3.0:provided
+[INFO] |  |  |  |  \- javax.inject:javax.inject:jar:1:provided
+[INFO] |  |  |  +- com.google.inject.extensions:guice-assistedinject:jar:3.0:provided
+[INFO] |  |  |  +- it.unimi.dsi:fastutil:jar:6.5.6:provided
+[INFO] |  |  |  +- org.apache.twill:twill-common:jar:0.6.0-incubating:provided
+[INFO] |  |  |  +- org.apache.twill:twill-core:jar:0.6.0-incubating:provided
+[INFO] |  |  |  |  \- org.apache.twill:twill-api:jar:0.6.0-incubating:provided
+[INFO] |  |  |  +- org.apache.twill:twill-discovery-api:jar:0.6.0-incubating:provided
+[INFO] |  |  |  +- org.apache.twill:twill-discovery-core:jar:0.6.0-incubating:provided
+[INFO] |  |  |  \- org.apache.twill:twill-zookeeper:jar:0.6.0-incubating:provided
+[INFO] |  |  \- co.cask.tephra:tephra-hbase-compat-1.0:jar:0.6.0:provided
+[INFO] |  +- org.apache.hive:hive-shims:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive.shims:hive-shims-common:jar:3.1.2:provided
+[INFO] |  |  +- org.apache.hive.shims:hive-shims-0.23:jar:3.1.2:provided
+[INFO] |  |  |  \- org.apache.hadoop:hadoop-yarn-server-resourcemanager:jar:3.1.0:provided
+[INFO] |  |  |     +- com.google.inject.extensions:guice-servlet:jar:4.0:provided
+[INFO] |  |  |     +- com.sun.jersey.contribs:jersey-guice:jar:1.19:provided
+[INFO] |  |  |     |  \- com.sun.jersey:jersey-servlet:jar:1.19:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-common:jar:3.1.0:provided
+[INFO] |  |  |     |  +- com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.7.8:provided
+[INFO] |  |  |     |  \- com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.7.8:provided
+[INFO] |  |  |     |     \- com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.7.8:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-api:jar:3.1.0:provided
+[INFO] |  |  |     +- com.sun.jersey:jersey-client:jar:1.19:provided
+[INFO] |  |  |     +- org.eclipse.jetty:jetty-util-ajax:jar:9.3.19.v20170502:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-server-common:jar:3.1.0:provided
+[INFO] |  |  |     |  +- org.apache.hadoop:hadoop-yarn-registry:jar:3.1.0:provided
+[INFO] |  |  |     |  |  +- commons-daemon:commons-daemon:jar:1.0.13:provided
+[INFO] |  |  |     |  |  \- dnsjava:dnsjava:jar:2.1.7:provided
+[INFO] |  |  |     |  +- org.apache.geronimo.specs:geronimo-jcache_1.0_spec:jar:1.0-alpha-1:provided
+[INFO] |  |  |     |  +- org.ehcache:ehcache:jar:3.3.1:provided
+[INFO] |  |  |     |  \- com.microsoft.sqlserver:mssql-jdbc:jar:6.2.1.jre7:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-server-applicationhistoryservice:jar:3.1.0:provided
+[INFO] |  |  |     |  \- de.ruedigermoeller:fst:jar:2.50:provided
+[INFO] |  |  |     |     \- com.cedarsoftware:java-util:jar:1.9.0:provided
+[INFO] |  |  |     |        \- com.cedarsoftware:json-io:jar:2.5.1:provided
+[INFO] |  |  |     +- org.apache.hadoop:hadoop-yarn-server-web-proxy:jar:3.1.0:provided
+[INFO] |  |  |     \- org.fusesource.leveldbjni:leveldbjni-all:jar:1.8:provided
+[INFO] |  |  \- org.apache.hive.shims:hive-shims-scheduler:jar:3.1.2:provided
+[INFO] |  +- org.apache.hive:hive-service-rpc:jar:3.1.2:provided
+[INFO] |  +- org.apache.httpcomponents:httpcore:jar:4.4.4:provided
+[INFO] |  +- org.apache.thrift:libthrift:jar:0.9.3:provided
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.4.6:provided
+[INFO] |  |  \- io.netty:netty:jar:3.7.0.Final:provided
+[INFO] |  \- org.apache.hive:hive-upgrade-acid:jar:3.1.2:provided
+[INFO] +- ru.yandex.clickhouse:clickhouse-jdbc:jar:0.2.4:provided
+[INFO] |  +- org.apache.httpcomponents:httpmime:jar:4.5.2:provided
+[INFO] |  +- net.jpountz.lz4:lz4:jar:1.3.0:provided
+[INFO] |  \- javax.xml.bind:jaxb-api:jar:2.3.0:provided
+[INFO] +- org.springframework:spring-test:jar:4.3.20.RELEASE:test
+[INFO] +- com.aliyun.odps:odps-jdbc:jar:1.6:test
+[INFO] |  \- com.aliyun.odps:odps-sdk-core:jar:0.18.3-public:test
+[INFO] |     +- org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:provided
+[INFO] |     +- net.sourceforge.javacsv:javacsv:jar:2.0:test
+[INFO] |     +- org.bouncycastle:bcprov-jdk15on:jar:1.52:test
+[INFO] |     \- org.xerial.snappy:snappy-java:jar:1.1.1.6:provided
+[INFO] +- junit:junit:jar:4.13.1:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.apache.derby:derby:jar:10.12.1.1:test
+[INFO] +- commons-dbcp:commons-dbcp:jar:1.4:test
+[INFO] |  \- commons-pool:commons-pool:jar:1.5.4:provided
+[INFO] +- org.apache.commons:commons-dbcp2:jar:2.5.0:test
+[INFO] |  \- org.apache.commons:commons-pool2:jar:2.6.0:test
+[INFO] +- com.jolbox:bonecp:jar:0.8.0.RELEASE:test
+[INFO] +- com.jolbox:bonecp-spring:jar:0.8.0.RELEASE:test
+[INFO] +- c3p0:c3p0:jar:0.9.1.2:test
+[INFO] +- org.apache.tomcat:tomcat-jdbc:jar:8.0.32:test
+[INFO] |  \- org.apache.tomcat:tomcat-juli:jar:8.0.32:test
+[INFO] +- org.nutz:nutz:jar:1.r.55:test
+[INFO] +- org.javasimon:javasimon-spring:jar:4.1.1:test
+[INFO] |  \- org.javasimon:javasimon-core:jar:4.1.1:test
+[INFO] +- org.javasimon:javasimon-jdbc41:jar:4.1.1:test
+[INFO] +- org.javasimon:javasimon-javaee:jar:4.1.1:test
+[INFO] +- org.apache.calcite:calcite-druid:jar:1.26.0:test
+[INFO] |  \- joda-time:joda-time:jar:2.8.1:provided
+[INFO] +- commons-dbutils:commons-dbutils:jar:1.6:test
+[INFO] +- org.antlr:antlr4:jar:4.7:test
+[INFO] |  +- org.antlr:antlr4-runtime:jar:4.7:test
+[INFO] |  +- org.antlr:antlr-runtime:jar:3.5.2:provided
+[INFO] |  +- org.antlr:ST4:jar:4.0.8:test
+[INFO] |  +- org.abego.treelayout:org.abego.treelayout.core:jar:1.0.3:test
+[INFO] |  +- org.glassfish:javax.json:jar:1.0.4:test
+[INFO] |  \- com.ibm.icu:icu4j:jar:58.2:test
+[INFO] +- org.openjdk.jmh:jmh-core:jar:1.19:test
+[INFO] |  +- net.sf.jopt-simple:jopt-simple:jar:4.6:test
+[INFO] |  \- org.apache.commons:commons-math3:jar:3.2:provided
+[INFO] +- org.openjdk.jmh:jmh-generator-annprocess:jar:1.19:test
+[INFO] +- org.mariadb.jdbc:mariadb-java-client:jar:2.4.0:test
+[INFO] +- com.sun:tools:jar:1.8:system
+[INFO] +- com.sun:jconsole:jar:1.8:system
+[INFO] +- org.apache.curator:curator-test:jar:4.2.0:test
+[INFO] +- com.alibaba:jconsole:jar:1.8.0:system
+[INFO] \- com.alibaba:tools:jar:1.8.0:system
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.561 s
+[INFO] Finished at: 2021-11-08T20:26:58+08:00
+[INFO] Final Memory: 46M/367M
+[INFO] ------------------------------------------------------------------------
