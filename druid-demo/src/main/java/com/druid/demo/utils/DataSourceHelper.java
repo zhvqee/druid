@@ -4,9 +4,7 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.druid.demo.properties.DruidDataSourceProperties;
 import org.springframework.util.StringUtils;
 
-import java.util.Collections;
 import java.util.Properties;
-import java.util.StringTokenizer;
 
 /**
  * @ProjectName: druid
@@ -23,7 +21,7 @@ public abstract class DataSourceHelper {
         DruidDataSource dataSource = new DruidDataSource();
 
 
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+        dataSource.setDriverClassName(properties.getDriverClassName());
         dataSource.setUrl(properties.getUrl());
         dataSource.setUsername(properties.getUsername());
         dataSource.setPassword(properties.getPassword());
@@ -56,9 +54,6 @@ public abstract class DataSourceHelper {
         dataSource.setLogAbandoned(properties.getLogAbandoned());
 
         dataSource.setProxyFilters(properties.getProxyFilters());
-
-        StringTokenizer tokenizer = new StringTokenizer(properties.getConnectionInitSqls(), ";");
-        dataSource.setConnectionInitSqls(Collections.list(tokenizer));
 
         dataSource.setUseUnfairLock(properties.getUseUnfairLock());
         return dataSource;

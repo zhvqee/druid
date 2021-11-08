@@ -22,155 +22,161 @@ import java.util.List;
 public class DruidDataSourceProperties {
 
     public static final String prefix = "druid.datasource";
+    private static final int CONNECTION_INITTIAL_SIZE = 5;
 
+    private static final int CONNECTION_MAX_SIZE = 20;
+
+    private static final int CONNNECTION_MIN_SIZE = 5;
+
+    private static final int CONNECTION_MAX_WAIT_TIME = 3000;
+
+    private static final int CONNECTION_POOLED_PREPARED_STATEMENT_SIZE = 50;
+
+    private static final String DEFAULT_SELECT_QUERY = "select 1";
+
+    private static final int DEFAULT_SELECT_QUERY_TIME_OUT = 500;
+
+    private static final int DEFAULT_EVICTION_MILLIS = 1500;
+    private static final int DEFAULT_MIN_EVICTION_IDLE_TIME_MOLLIS = 30000;
+    private static final int DEFAULT_MAX_EVICTION_IDLE_TIME_MOLLIS = 30000;
+    private static final int DEFAULT_PHY_TIMEOUT_MILLS = 12 * 60 * 1000;
+    private static final int DEFAULT_REMOVE_ABANDONED_TIME_OUT = 30;
+    private static final Boolean DEFAULT_AUTO_COMMIT = Boolean.TRUE;
+
+    private static final String DEFAULT_DRIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
+
+
+    private String driverClassName = DEFAULT_DRIVER_CLASS_NAME;
 
     /**
-     * JDBC url of the database.
+     * jdbc url
      */
     private String url;
 
     /**
-     * Login user of the database.
+     * 用户名
      */
     private String username;
 
     /**
-     * Login password of the database.
+     * 登录密码
      */
     private String password;
 
     /**
-     * 初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时 (默认大小为3)
+     * 初始的连接数量
      */
-    private Integer initialSize;
+    private Integer initialSize = CONNECTION_INITTIAL_SIZE;
 
     /**
      * 最大连接池数量
      */
-    private Integer maxActive;
+    private Integer maxActive = CONNECTION_MAX_SIZE;
 
 
     /**
-     * 最小连接池数量
+     * 空闲连接数量
      */
-    private Integer minIdle;
+    private Integer minIdle = CONNNECTION_MIN_SIZE;
 
     /**
-     * 获取连接时最大等待时间，单位毫秒。配置了maxWait之后，缺省启用公平锁，并发效率会有所下降，如果需要可以通过配置useUnfairLock属性为true使用非公平锁
+     * 连接最大等待时间，单位毫秒。
      */
-    private Integer maxWait;
+    private Integer maxWait = CONNECTION_MAX_WAIT_TIME;
 
     /**
-     * 是否缓存preparedStatement，也就是PSCache。PSCache对支持游标的数据库性能提升巨大，比如说oracle。在mysql下建议关闭。
+     * 池化的 PreparedStatements
      */
-    private Boolean poolPreparedStatements;
+    private Boolean poolPreparedStatements = false;
 
     /**
-     * 要启用PSCache，必须配置大于0，当大于0时，poolPreparedStatements自动触发修改为true。在Druid中，不会存在Oracle下PSCache占用内存过多的问题，可以把这个数值配置大一些，比如说100
+     * 池化时，最大连接数
      */
-    private Integer maxPoolPreparedStatementPerConnectionSize;
+    private Integer maxPoolPreparedStatementPerConnectionSize = CONNECTION_POOLED_PREPARED_STATEMENT_SIZE;
 
     /**
-     * 用来检测连接是否有效的sql，要求是一个查询语句，常用select 'x'。如果validationQuery为null，testOnBorrow、testOnReturn、testWhileIdle都不会其作用。默认为select
-     * 1
+     * 检测连接是否有效
      */
-    private String validationQuery;
+    private String validationQuery = DEFAULT_SELECT_QUERY;
 
     /**
-     * 单位：秒，检测连接是否有效的超时时间。底层调用jdbc Statement对象的void setQueryTimeout(int seconds)方法, 默认为1s
+     * 检测 validationQuery 查询的超时时间
      */
-    private Integer validationQueryTimeout;
+    private Integer validationQueryTimeout = DEFAULT_SELECT_QUERY_TIME_OUT;
 
     /**
-     * 申请连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+     * 如果为true（默认false），当应用向连接池申请连接时，连接池会判断这条连接是否是可用的。
      */
-    private Boolean testOnBorrow;
+    private Boolean testOnBorrow = false;
 
     /**
-     * 归还连接时执行validationQuery检测连接是否有效，做了这个配置会降低性能。
+     * 如果为true（默认false），当应用使用完连接，连接池回收连接的时候会判断该连接是否还可用。
      */
-    private Boolean testOnReturn;
+    private Boolean testOnReturn = false;
 
     /**
-     * 建议配置为true，不影响性能，并且保证安全性。申请连接的时候检测，如果空闲时间大于timeBetweenEvictionRunsMillis，执行validationQuery检测连接是否有效。默认为true
+     * 如果为true（默认true），当应用向连接池申请连接，并且testOnBorrow为false时，连接池将会判断连接是否处于空闲状态，如果是，则验证这条连接是否可用。
      */
-    private Boolean testWhileIdle;
+    private Boolean testWhileIdle = true;
 
     /**
-     * 有两个含义：默认15s 单位：ms
-     * 1) Destroy线程会检测连接的间隔时间，如果连接空闲时间大于等于minEvictableIdleTimeMillis则关闭物理连接。
-     * 2) testWhileIdle的判断依据，详细看testWhileIdle属性的说明
+     * timeBetweenEvictionRunsMillis可以用来控制空闲连接数的回收周期
+     * timeBetweenEvictionRunsMillis可以用来控制回收泄露连接的周期
+     * timeBetweenEvictionRunsMillis连接的空闲时间大于该值testWhileIdle才起作用
      */
-    private Integer timeBetweenEvictionRunsMillis;
+    private Integer timeBetweenEvictionRunsMillis = DEFAULT_EVICTION_MILLIS;
 
     /**
-     * 连接保持空闲而不被驱逐的最长时间(空闲多久可以认为是空闲太长而需要剔除),默认54s
+     * 空闲移除时间MIN
      */
-    private Integer minEvictableIdleTimeMillis;
+    private Integer minEvictableIdleTimeMillis = DEFAULT_MIN_EVICTION_IDLE_TIME_MOLLIS;
 
     /**
-     * 如果空闲时间太长即使连接池所剩连接 < minIdle 也要被剔除,默认54s
+     * 空闲移除时间MAX
      */
-    private Integer maxEvictableIdleTimeMillis;
+    private Integer maxEvictableIdleTimeMillis = DEFAULT_MAX_EVICTION_IDLE_TIME_MOLLIS;
 
     /**
      * 一条物理连接的最大存活时间(单位: ms)，默认120分钟
      */
-    private Integer phyTimeoutMillis;
+    private Integer phyTimeoutMillis = DEFAULT_PHY_TIMEOUT_MILLS;
 
     /**
-     * 强行关闭从连接池获取而长时间未归还给druid的连接(认为异常连接),默认true
+     * 是否移除异常连接
      */
-    private Boolean removeAbandoned;
+    private Boolean removeAbandoned = true;
 
     /**
-     * 异常连接判断条件 单位：秒 则认为是异常的，需要强行关闭。默认180s
+     * 异常异常的连接时间
      */
-    private Integer removeAbandonedTimeout;
+    private Integer removeAbandonedTimeout = DEFAULT_REMOVE_ABANDONED_TIME_OUT;
 
     /**
-     * 网络读取超时，网络连接超时, 默认值： connectTimeout=5000;socketTimeout=5000
+     * 连接参数？？？
      */
     private String connectionProperties;
 
     /**
-     * 是否设置自动提交，相当于每个语句一个事务, 默认值：true
+     * 是否自动提交
      */
-    private Boolean defaultAutoCommit;
+    private Boolean defaultAutoCommit = DEFAULT_AUTO_COMMIT;
 
     /**
      * 记录被判定为异常的连接, 默认值：true
      */
-    private Boolean logAbandoned;
+    private Boolean logAbandoned = true;
 
-    private String connectionInitSqls;
 
     /**
      * 过滤链
      */
     private List<Filter> proxyFilters = new ArrayList<>();
 
-    private List<String> filterBeans;
-
-    /**
-     * 统一资源名称
-     */
-    private String urn;
-    /**
-     * 链接闲置归还时长
-     */
-    private Integer keepAliveBetweenTimeMillis;
-
-    /**
-     * 链接是否保活
-     */
-    private Boolean keepAlive;
 
     /**
      * 使用非公平锁，建议开启，能大幅提升性能，影响就是不保证公平性
      */
-    private Boolean useUnfairLock;
-
+    private Boolean useUnfairLock = true;
 
 
 }
