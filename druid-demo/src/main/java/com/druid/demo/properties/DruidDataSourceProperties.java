@@ -2,13 +2,8 @@ package com.druid.demo.properties;
 
 import com.alibaba.druid.filter.Filter;
 import lombok.Data;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.InitializingBean;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
-import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,19 +17,12 @@ import java.util.List;
  * @Version: 1.0
  */
 @Data
+@Slf4j
 @ConfigurationProperties(prefix = DruidDataSourceProperties.prefix)
-public class DruidDataSourceProperties implements ApplicationContextAware, InitializingBean {
+public class DruidDataSourceProperties {
 
     public static final String prefix = "druid.datasource";
 
-    private static final Logger logger = LoggerFactory.getLogger(DruidDataSourceProperties.class);
-
-    private ApplicationContext applicationContext;
-
-    /**
-     * Fully qualified name of the JDBC driver. Auto-detected based on the URL by default.
-     */
-    private String driverClassName;
 
     /**
      * JDBC url of the database.
@@ -155,9 +143,12 @@ public class DruidDataSourceProperties implements ApplicationContextAware, Initi
      */
     private Boolean logAbandoned;
 
-    private String connectionInitSqls ;
+    private String connectionInitSqls;
 
-    private List<Filter> filters = new ArrayList<>();
+    /**
+     * 过滤链
+     */
+    private List<Filter> proxyFilters = new ArrayList<>();
 
     private List<String> filterBeans;
 
@@ -181,42 +172,5 @@ public class DruidDataSourceProperties implements ApplicationContextAware, Initi
     private Boolean useUnfairLock;
 
 
-    /**
-     * Determine the driver to use based on this configuration and the environment.
-     *
-     * @return the driver to use
-     * @since 1.4.0
-     */
-    public String determineDriverClassName() {
-        if (StringUtils.hasText(this.driverClassName)) {
-            return this.driverClassName;
-        }
-        return "com.mysql.jdbc.Driver";
-    }
 
-
-    public String getDriverClassName() {
-        return driverClassName;
-    }
-
-
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) {
-        this.applicationContext = applicationContext;
-    }
-
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        if (isValidPropertiesBean()) {
-            doAfterPropertiesSet();
-        }
-    }
-
-    private boolean isValidPropertiesBean() {
-        return StringUtils.hasText(getUrl());
-    }
-
-    private void doAfterPropertiesSet() {
-        this.driverClassName = determineDriverClassName();
-    }
 }

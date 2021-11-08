@@ -1,7 +1,7 @@
 package com.druid.demo.configuration;
 
 import com.druid.demo.properties.DruidDataSourceProperties;
-import com.druid.demo.utils.DataSourceConfigurationSupport;
+import com.druid.demo.utils.DataSourceHelper;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -33,7 +33,7 @@ public class DruidDataSourceConfiguration {
 
     @Bean
     public DataSource dataSource(DruidDataSourceProperties druidDataSource) {
-        return DataSourceConfigurationSupport.dataSourceOf(druidDataSource);
+        return DataSourceHelper.dataSourceOf(druidDataSource);
     }
 
 
