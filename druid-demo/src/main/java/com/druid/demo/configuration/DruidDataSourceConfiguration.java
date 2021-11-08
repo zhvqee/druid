@@ -1,10 +1,13 @@
 package com.druid.demo.configuration;
 
-import com.alibaba.druid.pool.DruidDataSource;
+import com.druid.demo.properties.DruidDataSourceProperties;
+import com.druid.demo.utils.DataSourceConfigurationSupport;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -25,28 +28,27 @@ import java.io.IOException;
  */
 @Configuration
 @MapperScan(basePackages = {"com.druid.demo.mapper"})
+@EnableConfigurationProperties(DruidDataSourceProperties.class)
 public class DruidDataSourceConfiguration {
 
     @Bean
-    public DataSource dataSource() {
-        DruidDataSource druidDataSource = new DruidDataSource();
-
-        return druidDataSource;
+    public DataSource dataSource(DruidDataSourceProperties druidDataSource) {
+        return DataSourceConfigurationSupport.dataSourceOf(druidDataSource);
     }
 
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFactoryBean() throws IOException {
+    public SqlSessionFactoryBean sqlSessionFactoryBean(@Qualifier("dataSource") DataSource dataSource) throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
-        sqlSessionFactoryBean.setDataSource(dataSource());
+        sqlSessionFactoryBean.setDataSource(dataSource);
         ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:mysql/mapper/*.xml"));
         return sqlSessionFactoryBean;
     }
 
     @Bean
-    public PlatformTransactionManager pbbTransactionManager() {
-        return new DataSourceTransactionManager(dataSource());
+    public PlatformTransactionManager pbbTransactionManager(@Qualifier("dataSource") DataSource dataSource) {
+        return new DataSourceTransactionManager(dataSource);
     }
 
 
