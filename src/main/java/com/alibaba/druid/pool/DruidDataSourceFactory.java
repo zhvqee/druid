@@ -143,7 +143,7 @@ public class DruidDataSourceFactory implements ObjectFactory {
         ) {
             return null;
         }
-
+        // 转化为
         Properties properties = new Properties();
         for (int i = 0; i < ALL_PROPERTIES.length; i++) {
             String propertyName = ALL_PROPERTIES[i];
