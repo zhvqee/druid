@@ -139,6 +139,7 @@ public class PoolUpdater implements Observer {
      * Remove unused DataSources.
      */
     public void removeDataSources() {
+        //如果待删除的集合为空，直接return ，节点为数据源名
         if (nodesToDel == null || nodesToDel.isEmpty()) {
             return;
         }
@@ -146,16 +147,26 @@ public class PoolUpdater implements Observer {
             lock.lock();
             Map<String, DataSource> map = highAvailableDataSource.getDataSourceMap();
             Set<String> copySet = new HashSet<String>(nodesToDel);
+
+            //循环删除
             for (String nodeName : copySet) {
                 LOG.info("Start removing Node " + nodeName + ".");
+
+                //如果该数据源不在数据源列表内，continue并从待删除的集合中删除
                 if (!map.containsKey(nodeName)) {
                     LOG.info("Node " + nodeName + " is NOT existed in the map.");
                     cancelBlacklistNode(nodeName);
                     continue;
                 }
+
+                //获取待删除的数据源
                 DataSource ds = map.get(nodeName);
+
+                //只对德鲁伊数据源处理
                 if (ds instanceof DruidDataSource) {
                     DruidDataSource dds = (DruidDataSource) ds;
+
+                    //如果当前待删除的数据源存在活动的连接，不删除
                     int activeCount = dds.getActiveCount(); // CAUTION, activeCount MAYBE changed!
                     if (activeCount > 0) {
                         LOG.warn("Node " + nodeName + " is still running [activeCount=" + activeCount
@@ -164,6 +175,7 @@ public class PoolUpdater implements Observer {
                     } else {
                         LOG.info("Close Node " + nodeName + " and remove it.");
                         try {
+                            //否则关闭数据源
                             dds.close();
                         } catch (Exception e) {
                             LOG.error("Exception occurred while closing Node " + nodeName
@@ -171,6 +183,7 @@ public class PoolUpdater implements Observer {
                         }
                     }
                 }
+                //然后从高可用的数据源的列表移除
                 map.remove(nodeName); // Remove the node directly if it is NOT a DruidDataSource.
                 cancelBlacklistNode(nodeName);
             }
