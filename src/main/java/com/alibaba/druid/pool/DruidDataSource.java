@@ -3202,7 +3202,14 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
         shrink(checkTime, keepAlive);
     }
 
+    /**
+     * 缩减
+     * @param checkTime true
+     * @param keepAlive
+     */
     public void shrink(boolean checkTime, boolean keepAlive) {
+
+        // 加锁
         try {
             lock.lockInterruptibly();
         } catch (InterruptedException e) {
@@ -3216,52 +3223,64 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
         fatalErrorCountLastShrink = fatalErrorCount;
 
         try {
+            //数据源未初始化完成，不进行
             if (!inited) {
                 return;
             }
-
+            //需要检测的连接数，当前连接池数量>最新的空闲连接，说明存在空闲连接比较多，可以回收。
             final int checkCount = poolingCount - minIdle;
             final long currentTimeMillis = System.currentTimeMillis();
+
+            //池中连接for循环处理
             for (int i = 0; i < poolingCount; ++i) {
                 DruidConnectionHolder connection = connections[i];
 
+                //keepAliveConnections 保存活着可用的连接池，
+                //如果连接池有致命错误， && 当前连接的创建时间小于致命时间发送的时间之前，直接认为该连接是活的，需要进行检测活性检测
                 if ((onFatalError || fatalErrorIncrement > 0) && (lastFatalErrorTimeMillis > connection.connectTimeMillis)) {
                     keepAliveConnections[keepAliveCount++] = connection;
                     continue;
                 }
 
                 if (checkTime) {
-                    if (phyTimeoutMillis > 0) {
+                    //一般不设置
+                    if (phyTimeoutMillis > 0) { //连接的生存周期phyTimeoutMillis
+                        //计算连接从创建时间到目前已存在了多长时间
                         long phyConnectTimeMillis = currentTimeMillis - connection.connectTimeMillis;
-                        if (phyConnectTimeMillis > phyTimeoutMillis) {
+                        if (phyConnectTimeMillis > phyTimeoutMillis) {//如果该连接已经超过设置的生存周期，需要进行回收
                             evictConnections[evictCount++] = connection;
                             continue;
                         }
                     }
 
+                    //计算空闲时间，即 空闲时间 = 当前时间 - 上一次使用该连接的时间
                     long idleMillis = currentTimeMillis - connection.lastActiveTimeMillis;
 
+                    //如果空闲时间小于最小的剔除时间 且小于2次保活时间间隔
                     if (idleMillis < minEvictableIdleTimeMillis
                             && idleMillis < keepAliveBetweenTimeMillis
-                    ) {
+                    ) { //这里感觉应该是continue，应该判断下一个连接
                         break;
                     }
 
+                    //如果大于最小的剔除空闲时间
                     if (idleMillis >= minEvictableIdleTimeMillis) {
-                        if (checkTime && i < checkCount) {
+                        if (checkTime && i < checkCount) { //这里有空闲的连接，直接剔除
                             evictConnections[evictCount++] = connection;
                             continue;
                         } else if (idleMillis > maxEvictableIdleTimeMillis) {
+                            //说明该连接存在的时间已经大于最大的空闲时间，直接移除。maxEvictableIdleTimeMillis 默认7小时
+                            //那么说明连接最大存活时间为7小时
                             evictConnections[evictCount++] = connection;
                             continue;
                         }
                     }
-
+                    //如果设置了保活，且空闲时间已经大于2次报活周期，需要放入keepAliveConnections，做检测
                     if (keepAlive && idleMillis >= keepAliveBetweenTimeMillis) {
                         keepAliveConnections[keepAliveCount++] = connection;
                     }
                 } else {
-                    if (i < checkCount) {
+                    if (i < checkCount) { //如果不进行时间检测，如果发现空闲连接比较多，直接把改连接放到剔除的连接池evictConnections中。
                         evictConnections[evictCount++] = connection;
                     } else {
                         break;
@@ -3269,6 +3288,7 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
                 }
             }
 
+            //移除空闲连接+需要检测的保活的连接，这样真正留下的就是有效的连接
             int removeCount = evictCount + keepAliveCount;
             if (removeCount > 0) {
                 System.arraycopy(connections, removeCount, connections, 0, poolingCount - removeCount);
@@ -3277,6 +3297,7 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
             }
             keepAliveCheckCount += keepAliveCount;
 
+            //判断连接池的连接已经不足 最小的空闲连接数量，需要进行填充，设needFill = true;
             if (keepAlive && poolingCount + activeCount < minIdle) {
                 needFill = true;
             }
@@ -3284,6 +3305,7 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
             lock.unlock();
         }
 
+        //这里关闭需要剔除的空闲连接
         if (evictCount > 0) {
             for (int i = 0; i < evictCount; ++i) {
                 DruidConnectionHolder item = evictConnections[i];
@@ -3294,6 +3316,8 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
             Arrays.fill(evictConnections, null);
         }
 
+
+        //这里做需要报活连接，进行连接验证validateConnection
         if (keepAliveCount > 0) {
             // keep order
             for (int i = keepAliveCount - 1; i >= 0; --i) {
@@ -3303,6 +3327,7 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
 
                 boolean validate = false;
                 try {
+                    //进行验证连接是否有效存活的。
                     this.validateConnection(connection);
                     validate = true;
                 } catch (Throwable error) {
@@ -3314,13 +3339,14 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
 
                 boolean discard = !validate;
                 if (validate) {
+                    //如果有效，放入池中
                     holer.lastKeepTimeMillis = System.currentTimeMillis();
                     boolean putOk = put(holer, 0L, true);
                     if (!putOk) {
                         discard = true;
                     }
                 }
-
+                //如果无效，直接关闭连接。
                 if (discard) {
                     try {
                         connection.close();
@@ -3343,7 +3369,7 @@ public class DruidDataSource extends DruidAbstractDataSource implements DruidDat
             this.getDataSourceStat().addKeepAliveCheckCount(keepAliveCount);
             Arrays.fill(keepAliveConnections, null);
         }
-
+        //如果连接池中，需要填充连接，则通过发送emptySignal，唤起创建连接进行创建连接
         if (needFill) {
             lock.lock();
             try {

@@ -17,11 +17,15 @@ public class RegisterTest extends TestCase {
         
         dataSource.registerMbean();
         Assert.assertTrue(dataSource.isMbeanRegistered());
-        
-        dataSource.unregisterMbean();
+        while (true){
+            Thread.sleep(15000);
+        }
+
+       /* dataSource.unregisterMbean();
         Assert.assertFalse(dataSource.isMbeanRegistered());
-        Assert.assertFalse(dataSource.isMbeanRegistered());
-        
-        dataSource.close();
+        Assert.assertFalse(dataSource.isMbeanRegistered());*/
+
+
+        //dataSource.close();
     }
 }
